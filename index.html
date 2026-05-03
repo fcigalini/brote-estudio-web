@@ -6,7 +6,7 @@
   <title>Brote Estudio — Arquitectura & Diseño de Interiores</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── Variables ──────────────────────────────────────────── */
@@ -21,12 +21,11 @@
       --acento:    #8b7355;
 
       --ff-display: 'Cormorant Garamond', Georgia, serif;
-      --ff-body:    'Jost', sans-serif;
+      --ff-body:    'Poppins', sans-serif;
 
       --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* ─── Reset ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -35,14 +34,13 @@
       color: var(--grafito);
       font-family: var(--ff-body);
       font-weight: 300;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       overflow-x: hidden;
     }
 
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
 
-    /* ─── Noise texture overlay ──────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
@@ -80,9 +78,7 @@
       color: var(--grafito);
     }
 
-    .nav-logo span {
-      color: var(--madera);
-    }
+    .nav-logo span { color: var(--madera); }
 
     .nav-links {
       display: flex;
@@ -91,7 +87,7 @@
     }
 
     .nav-links a {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -132,7 +128,7 @@
     }
 
     .hero-eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--madera);
@@ -152,13 +148,10 @@
       animation: fadeUp 1s var(--ease) 0.5s forwards;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--madera);
-    }
+    .hero-title em { font-style: italic; color: var(--madera); }
 
     .hero-desc {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       line-height: 1.9;
       color: var(--grafito-s);
       max-width: 38ch;
@@ -181,41 +174,31 @@
       background: var(--grafito);
       color: var(--blanco);
       font-family: var(--ff-body);
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       transition: background 0.3s, transform 0.3s var(--ease);
     }
 
-    .btn-primary:hover {
-      background: var(--acento);
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: var(--acento); transform: translateY(-2px); }
 
     .btn-ghost {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--grafito-s);
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      transition: color 0.3s, gap 0.3s;
+      transition: color 0.3s;
     }
 
-    .btn-ghost::after {
-      content: '→';
-      transition: transform 0.3s var(--ease);
-    }
-
+    .btn-ghost::after { content: '→'; transition: transform 0.3s var(--ease); }
     .btn-ghost:hover { color: var(--madera); }
     .btn-ghost:hover::after { transform: translateX(4px); }
 
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-    }
+    .hero-right { position: relative; overflow: hidden; }
 
     .hero-img-placeholder {
       position: absolute;
@@ -223,17 +206,9 @@
       background: linear-gradient(135deg, var(--arena) 0%, var(--madera-s) 60%, var(--madera) 100%);
     }
 
-    .hero-img-placeholder::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
     .hero-img-label {
       position: absolute;
-      bottom: 3rem;
-      left: 3rem;
+      bottom: 3rem; left: 3rem;
       font-family: var(--ff-display);
       font-size: 0.85rem;
       font-style: italic;
@@ -243,12 +218,11 @@
 
     .hero-scroll {
       position: absolute;
-      bottom: 3rem;
-      left: 4rem;
+      bottom: 3rem; left: 4rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--grafito-s);
@@ -257,8 +231,7 @@
     }
 
     .hero-scroll-line {
-      width: 40px;
-      height: 1px;
+      width: 40px; height: 1px;
       background: var(--madera);
       animation: expandLine 1.5s var(--ease) 1.5s both;
     }
@@ -267,7 +240,7 @@
     section { padding: 7rem 4rem; }
 
     .section-label {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--madera);
@@ -319,11 +292,9 @@
       color: rgba(255,255,255,0.6);
     }
 
-    .nosotros-content .section-title { margin-top: 0.5rem; }
-
     .nosotros-quote {
       font-family: var(--ff-display);
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-style: italic;
       font-weight: 300;
       line-height: 1.6;
@@ -334,15 +305,37 @@
     }
 
     .nosotros-text {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       line-height: 1.9;
       color: var(--grafito-s);
+      margin-bottom: 2.5rem;
+    }
+
+    .nosotros-equipo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--arena);
+    }
+
+    .nosotros-equipo-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--madera);
+      margin-bottom: 0.3rem;
+    }
+
+    .equipo-persona {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--grafito);
     }
 
     /* ─── SERVICIOS ──────────────────────────────────────────── */
-    #servicios {
-      background: var(--blanco);
-    }
+    #servicios { background: var(--blanco); }
 
     .servicios-header {
       display: grid;
@@ -353,7 +346,7 @@
     }
 
     .servicios-intro {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       line-height: 1.9;
       color: var(--grafito-s);
       max-width: 45ch;
@@ -362,7 +355,6 @@
     .servicios-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
       border: 1px solid var(--arena);
     }
 
@@ -372,7 +364,6 @@
       position: relative;
       overflow: hidden;
       transition: background 0.4s var(--ease);
-      cursor: default;
     }
 
     .servicio-card:last-child { border-right: none; }
@@ -411,8 +402,8 @@
     }
 
     .servicio-desc {
-      font-size: 0.83rem;
-      line-height: 1.85;
+      font-size: 0.78rem;
+      line-height: 1.9;
       color: var(--grafito-s);
     }
 
@@ -433,7 +424,7 @@
     }
 
     .proyectos-link {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--madera-s);
@@ -448,7 +439,6 @@
     .proyectos-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: auto auto;
       gap: 1.5rem;
     }
 
@@ -460,29 +450,47 @@
 
     .proyecto-card:nth-child(1) { grid-column: span 7; }
     .proyecto-card:nth-child(2) { grid-column: span 5; }
-    .proyecto-card:nth-child(3) { grid-column: span 4; }
-    .proyecto-card:nth-child(4) { grid-column: span 8; }
+    .proyecto-card:nth-child(3) { grid-column: span 5; }
+    .proyecto-card:nth-child(4) { grid-column: span 7; }
 
-    .proyecto-img {
-      aspect-ratio: 4/3;
+    .proyecto-placeholder-wrapper {
+      position: relative;
       width: 100%;
+      aspect-ratio: 4/3;
       transition: transform 0.7s var(--ease);
+      overflow: hidden;
     }
 
-    .proyecto-card:nth-child(1) .proyecto-img,
-    .proyecto-card:nth-child(4) .proyecto-img { aspect-ratio: 16/10; }
+    .proyecto-card:nth-child(1) .proyecto-placeholder-wrapper,
+    .proyecto-card:nth-child(4) .proyecto-placeholder-wrapper { aspect-ratio: 16/10; }
 
-    .proyecto-card:hover .proyecto-img { transform: scale(1.04); }
+    .proyecto-card:hover .proyecto-placeholder-wrapper { transform: scale(1.04); }
+
+    .proyecto-bg {
+      position: absolute;
+      inset: 0;
+    }
 
     .proyecto-bg-1 { background: linear-gradient(135deg, #c4a882, #8b6f4e); }
     .proyecto-bg-2 { background: linear-gradient(135deg, #a89070, #6b5040); }
     .proyecto-bg-3 { background: linear-gradient(135deg, #d4b896, #a07850); }
     .proyecto-bg-4 { background: linear-gradient(135deg, #b89878, #785840); }
 
+    .proyecto-placeholder-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+    }
+
     .proyecto-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(44,43,41,0.85) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(44,43,41,0.85) 0%, transparent 55%);
       opacity: 0;
       transition: opacity 0.4s var(--ease);
       display: flex;
@@ -501,22 +509,10 @@
     }
 
     .proyecto-info p {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--madera-s);
-    }
-
-    .proyecto-placeholder-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.3);
-      white-space: nowrap;
     }
 
     /* ─── CONTACTO ───────────────────────────────────────────── */
@@ -528,10 +524,8 @@
       align-items: start;
     }
 
-    .contacto-info .section-title { margin-bottom: 1.5rem; }
-
     .contacto-text {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       line-height: 1.9;
       color: var(--grafito-s);
       margin-bottom: 3rem;
@@ -547,7 +541,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--grafito-s);
       transition: color 0.3s;
     }
@@ -584,7 +578,7 @@
     }
 
     .form-group label {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--grafito-s);
@@ -598,7 +592,7 @@
       border-bottom: 1px solid var(--arena);
       padding: 0.75rem 0;
       font-family: var(--ff-body);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 300;
       color: var(--grafito);
       outline: none;
@@ -608,14 +602,10 @@
 
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus {
-      border-bottom-color: var(--madera);
-    }
+    .form-group select:focus { border-bottom-color: var(--madera); }
 
     .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--arena);
-    }
+    .form-group textarea::placeholder { color: var(--arena); }
 
     .form-group select option { background: var(--blanco); }
 
@@ -625,7 +615,7 @@
       background: var(--grafito);
       color: var(--blanco);
       font-family: var(--ff-body);
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -634,10 +624,7 @@
       transition: background 0.3s, transform 0.3s var(--ease);
     }
 
-    .btn-submit:hover {
-      background: var(--acento);
-      transform: translateY(-2px);
-    }
+    .btn-submit:hover { background: var(--acento); transform: translateY(-2px); }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
@@ -660,8 +647,7 @@
     .footer-logo span { color: var(--madera); }
 
     .footer-tagline {
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
+      font-size: 0.65rem;
       color: rgba(245,240,232,0.4);
       margin-top: 0.4rem;
     }
@@ -673,7 +659,7 @@
     }
 
     .footer-links a {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(245,240,232,0.5);
@@ -683,9 +669,8 @@
     .footer-links a:hover { color: var(--madera-s); }
 
     .footer-copy {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: rgba(245,240,232,0.3);
-      letter-spacing: 0.05em;
     }
 
     /* ─── Animations ─────────────────────────────────────────── */
@@ -705,44 +690,30 @@
       transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── Responsive ─────────────────────────────────────────── */
     @media (max-width: 1024px) {
       nav { padding: 1.5rem 2rem; }
       nav.scrolled { padding: 1rem 2rem; }
       section { padding: 5rem 2rem; }
-
       #inicio { grid-template-columns: 1fr; }
       .hero-left { padding: 8rem 2rem 4rem; }
       .hero-right { min-height: 50vh; }
       .hero-scroll { left: 2rem; }
-
       #nosotros { grid-template-columns: 1fr; gap: 3rem; }
       .nosotros-img { aspect-ratio: 4/3; }
-
       .servicios-header { grid-template-columns: 1fr; gap: 1.5rem; }
       .servicios-grid { grid-template-columns: 1fr; }
       .servicio-card { border-right: none; border-bottom: 1px solid var(--arena); }
       .servicio-card:last-child { border-bottom: none; }
-
       .proyectos-grid { grid-template-columns: 1fr 1fr; }
       .proyecto-card:nth-child(1),
       .proyecto-card:nth-child(2),
       .proyecto-card:nth-child(3),
       .proyecto-card:nth-child(4) { grid-column: span 1; }
-
       #contacto { grid-template-columns: 1fr; gap: 3rem; }
-
-      footer {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
-        padding: 3rem 2rem;
-      }
+      footer { flex-direction: column; gap: 2rem; text-align: center; padding: 3rem 2rem; }
     }
 
     @media (max-width: 640px) {
@@ -754,7 +725,7 @@
 
 <body>
 
-  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <!-- NAV -->
   <nav id="navbar">
     <a href="#inicio" class="nav-logo">Brote<span>.</span></a>
     <ul class="nav-links">
@@ -765,7 +736,7 @@
     </ul>
   </nav>
 
-  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section id="inicio">
     <div class="hero-left">
       <p class="hero-eyebrow">Rosario, Argentina — Arquitectura & Diseño</p>
@@ -793,16 +764,14 @@
     </div>
   </section>
 
-  <!-- ─── NOSOTROS ─────────────────────────────────────────────── -->
+  <!-- NOSOTROS -->
   <section id="nosotros">
     <div class="nosotros-img reveal">
       <p class="nosotros-img-label">Estudio — Rosario</p>
     </div>
     <div class="nosotros-content reveal">
       <p class="section-label">Sobre nosotros</p>
-      <h2 class="section-title">
-        Diseño con<br><em>sentido</em>
-      </h2>
+      <h2 class="section-title">Diseño con<br><em>sentido</em></h2>
       <blockquote class="nosotros-quote">
         "Los lugares no se llenan: se construyen, crecen y se transforman con vos."
       </blockquote>
@@ -812,10 +781,15 @@
         sino su forma de habitar. Cada espacio que diseñamos es único: nace de una
         conversación, crece con un proceso y se transforma en un lugar que acompaña.
       </p>
+      <div class="nosotros-equipo">
+        <p class="nosotros-equipo-label">Equipo</p>
+        <div class="equipo-persona">Dra. Luna Blanco</div>
+        <div class="equipo-persona">Arq. Martina Lombardich</div>
+      </div>
     </div>
   </section>
 
-  <!-- ─── SERVICIOS ────────────────────────────────────────────── -->
+  <!-- SERVICIOS -->
   <section id="servicios">
     <div class="servicios-header">
       <div class="reveal">
@@ -827,36 +801,26 @@
         Trabajamos en Rosario y alrededores, con atención personalizada en cada etapa.
       </p>
     </div>
-
     <div class="servicios-grid">
       <div class="servicio-card reveal">
         <div class="servicio-num">01</div>
         <h3 class="servicio-title">Diseño de interiores & remodelación</h3>
-        <p class="servicio-desc">
-          Transformamos espacios existentes o diseñamos desde cero. Analizamos la luz,
-          la circulación y tu modo de vivir para crear ambientes que se sientan tuyos.
-        </p>
+        <p class="servicio-desc">Transformamos espacios existentes o diseñamos desde cero. Analizamos la luz, la circulación y tu modo de vivir para crear ambientes que se sientan tuyos.</p>
       </div>
       <div class="servicio-card reveal">
         <div class="servicio-num">02</div>
         <h3 class="servicio-title">Mobiliario a medida</h3>
-        <p class="servicio-desc">
-          Diseñamos muebles que se adaptan exactamente al espacio y a quien lo habita.
-          Materiales nobles, proporciones cuidadas, funcionalidad pensada.
-        </p>
+        <p class="servicio-desc">Diseñamos muebles que se adaptan exactamente al espacio y a quien lo habita. Materiales nobles, proporciones cuidadas, funcionalidad pensada.</p>
       </div>
       <div class="servicio-card reveal">
         <div class="servicio-num">03</div>
         <h3 class="servicio-title">Proyecto, renders & ejecución</h3>
-        <p class="servicio-desc">
-          Desarrollamos el proyecto completo: documentación técnica, renders realistas
-          para visualizar el resultado y acompañamiento durante toda la ejecución de obra.
-        </p>
+        <p class="servicio-desc">Desarrollamos el proyecto completo: documentación técnica, renders realistas para visualizar el resultado y acompañamiento durante toda la ejecución de obra.</p>
       </div>
     </div>
   </section>
 
-  <!-- ─── PROYECTOS ────────────────────────────────────────────── -->
+  <!-- PROYECTOS -->
   <section id="proyectos">
     <div class="proyectos-header">
       <div class="reveal">
@@ -867,56 +831,64 @@
         Ver en Instagram →
       </a>
     </div>
-
     <div class="proyectos-grid">
+
       <div class="proyecto-card reveal">
-        <div class="proyecto-img proyecto-bg-1">
+        <div class="proyecto-placeholder-wrapper">
+          <div class="proyecto-bg proyecto-bg-1"></div>
           <p class="proyecto-placeholder-text">Foto del proyecto</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
-            <h3>Proyecto 01</h3>
+            <h3>Proyecto Cimarrón</h3>
             <p>Diseño de interiores · Rosario</p>
           </div>
         </div>
       </div>
+
       <div class="proyecto-card reveal">
-        <div class="proyecto-img proyecto-bg-2">
+        <div class="proyecto-placeholder-wrapper">
+          <div class="proyecto-bg proyecto-bg-2"></div>
           <p class="proyecto-placeholder-text">Foto del proyecto</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
-            <h3>Proyecto 02</h3>
+            <h3>Proyecto San Sebastián</h3>
             <p>Mobiliario a medida · Rosario</p>
           </div>
         </div>
       </div>
+
       <div class="proyecto-card reveal">
-        <div class="proyecto-img proyecto-bg-3">
+        <div class="proyecto-placeholder-wrapper">
+          <div class="proyecto-bg proyecto-bg-3"></div>
           <p class="proyecto-placeholder-text">Foto del proyecto</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
-            <h3>Proyecto 03</h3>
+            <h3>Proyecto Timbó</h3>
             <p>Remodelación · Rosario</p>
           </div>
         </div>
       </div>
+
       <div class="proyecto-card reveal">
-        <div class="proyecto-img proyecto-bg-4">
+        <div class="proyecto-placeholder-wrapper">
+          <div class="proyecto-bg proyecto-bg-4"></div>
           <p class="proyecto-placeholder-text">Foto del proyecto</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
-            <h3>Proyecto 04</h3>
+            <h3>Proyecto Arroyo V</h3>
             <p>Proyecto completo · Rosario</p>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ─── CONTACTO ─────────────────────────────────────────────── -->
+  <!-- CONTACTO -->
   <section id="contacto">
     <div class="contacto-info">
       <p class="section-label reveal">Contacto</p>
@@ -926,17 +898,17 @@
         que tenés en mente, y organizamos un primer encuentro sin compromiso.
       </p>
       <div class="contacto-canales reveal">
-        <a href="https://wa.me/54XXXXXXXXXX" target="_blank" class="canal">
-          <div class="canal-icon">📱</div>
-          <span>WhatsApp — Escribinos directamente</span>
+        <a href="tel:+543464551829" class="canal">
+          <div class="canal-icon">📞</div>
+          <span>(3464) 551829 &nbsp;/&nbsp; (3464) 553071</span>
+        </a>
+        <a href="mailto:proyectos.estudiobrote@gmail.com" class="canal">
+          <div class="canal-icon">✉</div>
+          <span>proyectos.estudiobrote@gmail.com</span>
         </a>
         <a href="https://www.instagram.com/brote.est/" target="_blank" class="canal">
           <div class="canal-icon">📷</div>
-          <span>Instagram — @brote.est</span>
-        </a>
-        <a href="mailto:hola@broteestudio.com" class="canal">
-          <div class="canal-icon">✉</div>
-          <span>Email — hola@broteestudio.com</span>
+          <span>@Brote.est</span>
         </a>
       </div>
     </div>
@@ -968,7 +940,7 @@
     </form>
   </section>
 
-  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
     <div>
       <div class="footer-logo">Brote<span>.</span></div>
@@ -984,22 +956,17 @@
     <p class="footer-copy">© 2025 Brote Estudio</p>
   </footer>
 
-  <!-- ─── JS ───────────────────────────────────────────────────── -->
   <script>
-    // Nav scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 80);
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
           observer.unobserve(entry.target);
         }
       });
@@ -1007,7 +974,6 @@
 
     reveals.forEach(el => observer.observe(el));
 
-    // Form submit
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.btn-submit');
