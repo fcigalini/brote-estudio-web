@@ -9,21 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── Variables — paleta oficial Brote ──────────────────── */
     :root {
-      --negro:     #262523;   /* principal: textos, nav, footer */
-      --medio:     #433A35;   /* secundario: textos suaves, acentos */
-      --gris:      #BFBBB6;   /* bordes, fondos suaves */
-      --gris-claro:#E8E5E1;   /* fondos muy suaves */
-      --blanco:    #F9F8F6;   /* fondo base */
+      --negro:      #262523;
+      --medio:      #433A35;
+      --gris:       #BFBBB6;
+      --gris-claro: #E8E5E1;
+      --blanco:     #F9F8F6;
 
       --ff-display: 'Lora', Georgia, serif;
       --ff-body:    'Poppins', sans-serif;
-
       --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* ─── Reset ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
@@ -39,7 +36,7 @@
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
 
-    /* ─── NAV ────────────────────────────────────────────────── */
+    /* ─── NAV ──────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -61,15 +58,10 @@
     .nav-logo img {
       height: 36px;
       width: auto;
-      display: block;
-      /* logo es negro sobre blanco — en hero oscuro lo invertimos */
       transition: filter 0.4s;
     }
 
-    /* cuando el nav es transparente (hero) el logo se invierte a blanco */
-    nav:not(.scrolled) .nav-logo img {
-      filter: brightness(0) invert(1);
-    }
+    nav:not(.scrolled) .nav-logo img { filter: brightness(0) invert(1); }
 
     .nav-links {
       display: flex;
@@ -101,7 +93,7 @@
 
     .nav-links a:hover::after { width: 100%; }
 
-    /* ─── HERO ───────────────────────────────────────────────── */
+    /* ─── HERO ─────────────────────────────────────────────── */
     #inicio {
       min-height: 100vh;
       display: grid;
@@ -141,10 +133,7 @@
       animation: fadeUp 1s var(--ease) 0.5s forwards;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--gris);
-    }
+    .hero-title em { font-style: italic; color: var(--gris); }
 
     .hero-desc {
       font-size: 0.8rem;
@@ -174,13 +163,10 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      transition: background 0.3s, color 0.3s, transform 0.3s var(--ease);
+      transition: background 0.3s, transform 0.3s var(--ease);
     }
 
-    .btn-primary:hover {
-      background: var(--gris-claro);
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: var(--gris-claro); transform: translateY(-2px); }
 
     .btn-ghost {
       font-size: 0.62rem;
@@ -203,10 +189,20 @@
       background: var(--gris-claro);
     }
 
-    .hero-img-placeholder {
+    /* Hero usa la foto más representativa del Cimarrón */
+    .hero-img {
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, var(--gris-claro) 0%, var(--gris) 100%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(38,37,35,0.15) 0%, transparent 40%);
     }
 
     .hero-img-label {
@@ -215,7 +211,9 @@
       font-family: var(--ff-display);
       font-size: 0.82rem;
       font-style: italic;
-      color: var(--medio);
+      color: var(--blanco);
+      opacity: 0.85;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
     .hero-scroll {
@@ -238,7 +236,7 @@
       animation: expandLine 1.5s var(--ease) 1.5s both;
     }
 
-    /* ─── SECTION BASE ───────────────────────────────────────── */
+    /* ─── SECTION BASE ─────────────────────────────────────── */
     section { padding: 7rem 4rem; }
 
     .section-label {
@@ -260,7 +258,7 @@
 
     .section-title em { font-style: italic; color: var(--medio); }
 
-    /* ─── NOSOTROS ───────────────────────────────────────────── */
+    /* ─── NOSOTROS ─────────────────────────────────────────── */
     #nosotros {
       background: var(--gris-claro);
       display: grid;
@@ -337,7 +335,7 @@
       color: var(--negro);
     }
 
-    /* ─── SERVICIOS ──────────────────────────────────────────── */
+    /* ─── SERVICIOS ────────────────────────────────────────── */
     #servicios { background: var(--blanco); }
 
     .servicios-header {
@@ -409,7 +407,7 @@
       color: var(--medio);
     }
 
-    /* ─── PROYECTOS ──────────────────────────────────────────── */
+    /* ─── PROYECTOS ────────────────────────────────────────── */
     #proyectos {
       background: var(--negro);
       color: var(--blanco);
@@ -439,6 +437,7 @@
 
     .proyectos-link:hover { color: var(--blanco); gap: 1rem; }
 
+    /* ── Grilla asimétrica ─────────────────────────────────── */
     .proyectos-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -456,6 +455,22 @@
     .proyecto-card:nth-child(3) { grid-column: span 5; }
     .proyecto-card:nth-child(4) { grid-column: span 7; }
 
+    /* Imagen real */
+    .proyecto-img-real {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.7s var(--ease);
+    }
+
+    .proyecto-card:nth-child(1) .proyecto-img-real,
+    .proyecto-card:nth-child(4) .proyecto-img-real { aspect-ratio: 16/10; }
+
+    .proyecto-card:hover .proyecto-img-real { transform: scale(1.04); }
+
+    /* Placeholder (proyectos sin foto aún) */
     .proyecto-placeholder-wrapper {
       position: relative;
       width: 100%;
@@ -464,7 +479,6 @@
       transition: transform 0.7s var(--ease);
     }
 
-    .proyecto-card:nth-child(1) .proyecto-placeholder-wrapper,
     .proyecto-card:nth-child(4) .proyecto-placeholder-wrapper { aspect-ratio: 16/10; }
 
     .proyecto-card:hover .proyecto-placeholder-wrapper { transform: scale(1.04); }
@@ -474,8 +488,6 @@
       inset: 0;
     }
 
-    /* Grises con leve variación tonal — sin desviar del tono */
-    .proyecto-bg-1 { background: linear-gradient(140deg, #5a5350 0%, #3a3330 100%); }
     .proyecto-bg-2 { background: linear-gradient(140deg, #4a4744 0%, #2e2b29 100%); }
     .proyecto-bg-3 { background: linear-gradient(140deg, #6a6562 0%, #433A35 100%); }
     .proyecto-bg-4 { background: linear-gradient(140deg, #524e4b 0%, #353230 100%); }
@@ -491,15 +503,17 @@
       white-space: nowrap;
     }
 
+    /* Overlay común */
     .proyecto-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(38,37,35,0.9) 0%, transparent 55%);
+      background: linear-gradient(to top, rgba(38,37,35,0.88) 0%, transparent 55%);
       opacity: 0;
       transition: opacity 0.4s var(--ease);
       display: flex;
       align-items: flex-end;
       padding: 2rem;
+      pointer-events: none;
     }
 
     .proyecto-card:hover .proyecto-overlay { opacity: 1; }
@@ -519,7 +533,7 @@
       color: var(--gris);
     }
 
-    /* ─── CONTACTO ───────────────────────────────────────────── */
+    /* ─── CONTACTO ─────────────────────────────────────────── */
     #contacto {
       background: var(--gris-claro);
       display: grid;
@@ -630,7 +644,7 @@
 
     .btn-submit:hover { background: var(--medio); transform: translateY(-2px); }
 
-    /* ─── FOOTER ─────────────────────────────────────────────── */
+    /* ─── FOOTER ───────────────────────────────────────────── */
     footer {
       background: var(--negro);
       color: var(--blanco);
@@ -652,7 +666,6 @@
       font-size: 0.62rem;
       color: var(--gris);
       margin-top: 0.5rem;
-      letter-spacing: 0.04em;
     }
 
     .footer-links {
@@ -677,7 +690,7 @@
       opacity: 0.5;
     }
 
-    /* ─── Animations ─────────────────────────────────────────── */
+    /* ─── Animations ───────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -696,7 +709,7 @@
 
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── Responsive ─────────────────────────────────────────── */
+    /* ─── Responsive ───────────────────────────────────────── */
     @media (max-width: 1024px) {
       nav { padding: 1.5rem 2rem; }
       nav.scrolled { padding: 1rem 2rem; }
@@ -712,6 +725,8 @@
       .servicio-card:last-child { border-bottom: none; }
       .proyectos-grid { grid-template-columns: 1fr 1fr; }
       .proyecto-card:nth-child(n) { grid-column: span 1; }
+      .proyecto-img-real { aspect-ratio: 4/3 !important; }
+      .proyecto-placeholder-wrapper { aspect-ratio: 4/3 !important; }
       #contacto { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; gap: 2rem; text-align: center; padding: 3rem 2rem; }
     }
@@ -757,8 +772,14 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-img-placeholder"></div>
-      <p class="hero-img-label">Próximamente — proyectos 2025</p>
+      <!-- Foto principal del Cimarrón como imagen de impacto del hero -->
+      <img
+        class="hero-img"
+        src="assets/images/proyectos/cimarron/03.jpeg"
+        alt="Proyecto Cimarrón — Brote Estudio"
+      />
+      <div class="hero-img-overlay"></div>
+      <p class="hero-img-label">Proyecto Cimarrón — Mobiliario a medida</p>
     </div>
     <div class="hero-scroll">
       <span class="hero-scroll-line"></span>
@@ -833,38 +854,43 @@
         Ver en Instagram →
       </a>
     </div>
+
     <div class="proyectos-grid">
 
+      <!-- Cimarrón — foto real, ocupa 7 columnas -->
       <div class="proyecto-card reveal">
-        <div class="proyecto-placeholder-wrapper">
-          <div class="proyecto-bg proyecto-bg-1"></div>
-          <p class="proyecto-placeholder-text">Foto del proyecto</p>
-        </div>
+        <img
+          class="proyecto-img-real"
+          src="assets/images/proyectos/cimarron/01.jpeg"
+          alt="Proyecto Cimarrón"
+        />
         <div class="proyecto-overlay">
           <div class="proyecto-info">
             <h3>Proyecto Cimarrón</h3>
-            <p>Diseño de interiores · Rosario</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="proyecto-card reveal">
-        <div class="proyecto-placeholder-wrapper">
-          <div class="proyecto-bg proyecto-bg-2"></div>
-          <p class="proyecto-placeholder-text">Foto del proyecto</p>
-        </div>
-        <div class="proyecto-overlay">
-          <div class="proyecto-info">
-            <h3>Proyecto San Sebastián</h3>
             <p>Mobiliario a medida · Rosario</p>
           </div>
         </div>
       </div>
 
+      <!-- San Sebastián — placeholder -->
+      <div class="proyecto-card reveal">
+        <div class="proyecto-placeholder-wrapper">
+          <div class="proyecto-bg proyecto-bg-2"></div>
+          <p class="proyecto-placeholder-text">Próximamente</p>
+        </div>
+        <div class="proyecto-overlay">
+          <div class="proyecto-info">
+            <h3>Proyecto San Sebastián</h3>
+            <p>Diseño de interiores · Rosario</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timbó — placeholder -->
       <div class="proyecto-card reveal">
         <div class="proyecto-placeholder-wrapper">
           <div class="proyecto-bg proyecto-bg-3"></div>
-          <p class="proyecto-placeholder-text">Foto del proyecto</p>
+          <p class="proyecto-placeholder-text">Próximamente</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
@@ -874,10 +900,11 @@
         </div>
       </div>
 
+      <!-- Arroyo V — placeholder, ocupa 7 columnas -->
       <div class="proyecto-card reveal">
         <div class="proyecto-placeholder-wrapper">
           <div class="proyecto-bg proyecto-bg-4"></div>
-          <p class="proyecto-placeholder-text">Foto del proyecto</p>
+          <p class="proyecto-placeholder-text">Próximamente</p>
         </div>
         <div class="proyecto-overlay">
           <div class="proyecto-info">
