@@ -942,7 +942,8 @@
       </div>
     </div>
 
-    <form class="contacto-form reveal" onsubmit="handleSubmit(event)">
+    <form class="contacto-form reveal" name="contacto" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contacto" />
       <div class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
