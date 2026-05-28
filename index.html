@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Netlify form detection -->
-<form name="contacto" netlify hidden>
-  <input name="nombre" />
-  <input name="email" />
-  <input name="servicio" />
-  <input name="mensaje" />
-</form>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brote Estudio — Arquitectura & Diseño de Interiores</title>
+
+  <!-- ─── SEO ───────────────────────────────────────────────── -->
+  <title>Brote Estudio — Arquitectura & Diseño de Interiores · Rosario</title>
+  <meta name="description" content="Estudio de arquitectura y diseño de interiores en Rosario, Argentina. Remodelación, mobiliario a medida, proyecto y ejecución de obra. Dra. Luna Blanco & Arq. Martina Lombardich." />
+  <meta name="keywords" content="arquitectura rosario, diseño de interiores rosario, mobiliario a medida, remodelación, brote estudio" />
+  <meta name="author" content="Brote Estudio" />
+  <link rel="canonical" href="https://brote-estudio.netlify.app/" />
+
+  <!-- ─── Favicon ────────────────────────────────────────────── -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- ─── Open Graph (WhatsApp, Instagram, redes) ───────────── -->
+  <meta property="og:title" content="Brote Estudio — Arquitectura & Diseño de Interiores" />
+  <meta property="og:description" content="Creamos espacios que acompañan tu día a día dialogando con tu forma de vivir. Rosario, Argentina." />
+  <meta property="og:image" content="https://brote-estudio.netlify.app/assets/images/proyectos/cimarron/03.jpeg" />
+  <meta property="og:url" content="https://brote-estudio.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- ─── Twitter Card ──────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brote Estudio — Arquitectura & Diseño de Interiores" />
+  <meta name="twitter:description" content="Creamos espacios que acompañan tu día a día dialogando con tu forma de vivir. Rosario, Argentina." />
+  <meta name="twitter:image" content="https://brote-estudio.netlify.app/assets/images/proyectos/cimarron/03.jpeg" />
+
+  <!-- ─── Fonts ──────────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- ─── Netlify Forms (detección) ─────────────────────────── -->
+  <form name="contacto" netlify hidden>
+    <input name="nombre" />
+    <input name="email" />
+    <input name="servicio" />
+    <input name="mensaje" />
+  </form>
 
   <style>
     :root {
@@ -63,12 +90,22 @@
     }
 
     .nav-logo img {
-      height: 36px;
+      height: 32px;
       width: auto;
       transition: filter 0.4s;
+      /* Logo transparente: letras en color oscuro #433A35
+         En hero (fondo negro) las aclaramos con CSS filter */
     }
 
-    nav:not(.scrolled) .nav-logo img { filter: brightness(0) invert(1); }
+    /* Sobre el hero oscuro — aclarar las letras del logo */
+    nav:not(.scrolled) .nav-logo img {
+      filter: brightness(0) invert(1) opacity(0.9);
+    }
+
+    /* Sobre fondo claro (scrolled) — dejar el color original del logo */
+    nav.scrolled .nav-logo img {
+      filter: none;
+    }
 
     .nav-links {
       display: flex;
@@ -196,7 +233,6 @@
       background: var(--gris-claro);
     }
 
-    /* Hero usa la foto más representativa del Cimarrón */
     .hero-img {
       position: absolute;
       inset: 0;
@@ -444,7 +480,6 @@
 
     .proyectos-link:hover { color: var(--blanco); gap: 1rem; }
 
-    /* ── Grilla asimétrica ─────────────────────────────────── */
     .proyectos-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -462,7 +497,6 @@
     .proyecto-card:nth-child(3) { grid-column: span 5; }
     .proyecto-card:nth-child(4) { grid-column: span 7; }
 
-    /* Imagen real */
     .proyecto-img-real {
       width: 100%;
       aspect-ratio: 4/3;
@@ -477,7 +511,6 @@
 
     .proyecto-card:hover .proyecto-img-real { transform: scale(1.04); }
 
-    /* Placeholder (proyectos sin foto aún) */
     .proyecto-placeholder-wrapper {
       position: relative;
       width: 100%;
@@ -487,14 +520,9 @@
     }
 
     .proyecto-card:nth-child(4) .proyecto-placeholder-wrapper { aspect-ratio: 16/10; }
-
     .proyecto-card:hover .proyecto-placeholder-wrapper { transform: scale(1.04); }
 
-    .proyecto-bg {
-      position: absolute;
-      inset: 0;
-    }
-
+    .proyecto-bg { position: absolute; inset: 0; }
     .proyecto-bg-2 { background: linear-gradient(140deg, #4a4744 0%, #2e2b29 100%); }
     .proyecto-bg-3 { background: linear-gradient(140deg, #6a6562 0%, #433A35 100%); }
     .proyecto-bg-4 { background: linear-gradient(140deg, #524e4b 0%, #353230 100%); }
@@ -510,7 +538,6 @@
       white-space: nowrap;
     }
 
-    /* Overlay común */
     .proyecto-overlay {
       position: absolute;
       inset: 0;
@@ -665,8 +692,8 @@
     .footer-logo img {
       height: 28px;
       width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.85;
+      /* Logo transparente sobre fondo oscuro — invertir a blanco */
+      filter: brightness(0) invert(1) opacity(0.85);
     }
 
     .footer-tagline {
@@ -750,7 +777,7 @@
   <!-- NAV -->
   <nav id="navbar">
     <a href="#inicio" class="nav-logo">
-      <img src="assets/images/logo.png" alt="Brote Estudio" />
+      <img src="assets/images/logo_transparente.png" alt="Brote Estudio" />
     </a>
     <ul class="nav-links">
       <li><a href="#nosotros">Nosotros</a></li>
@@ -779,7 +806,6 @@
       </div>
     </div>
     <div class="hero-right">
-      <!-- Foto principal del Cimarrón como imagen de impacto del hero -->
       <img
         class="hero-img"
         src="assets/images/proyectos/cimarron/03.jpeg"
@@ -861,10 +887,8 @@
         Ver en Instagram →
       </a>
     </div>
-
     <div class="proyectos-grid">
 
-      <!-- Cimarrón — foto real, ocupa 7 columnas -->
       <div class="proyecto-card reveal">
         <img
           class="proyecto-img-real"
@@ -879,7 +903,6 @@
         </div>
       </div>
 
-      <!-- San Sebastián — placeholder -->
       <div class="proyecto-card reveal">
         <div class="proyecto-placeholder-wrapper">
           <div class="proyecto-bg proyecto-bg-2"></div>
@@ -893,7 +916,6 @@
         </div>
       </div>
 
-      <!-- Timbó — placeholder -->
       <div class="proyecto-card reveal">
         <div class="proyecto-placeholder-wrapper">
           <div class="proyecto-bg proyecto-bg-3"></div>
@@ -907,7 +929,6 @@
         </div>
       </div>
 
-      <!-- Arroyo V — placeholder, ocupa 7 columnas -->
       <div class="proyecto-card reveal">
         <div class="proyecto-placeholder-wrapper">
           <div class="proyecto-bg proyecto-bg-4"></div>
@@ -981,7 +1002,7 @@
   <footer>
     <div>
       <div class="footer-logo">
-        <img src="assets/images/logo.png" alt="Brote Estudio" />
+        <img src="assets/images/logo_transparente.png" alt="Brote Estudio" />
       </div>
       <p class="footer-tagline">Arquitectura & Diseño de Interiores — Rosario</p>
     </div>
@@ -1012,18 +1033,6 @@
     }, { threshold: 0.12 });
 
     reveals.forEach(el => observer.observe(el));
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.btn-submit');
-      btn.textContent = '✓ Mensaje enviado';
-      btn.style.background = 'var(--medio)';
-      setTimeout(() => {
-        btn.textContent = 'Enviar consulta';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
-    }
   </script>
 
 </body>
