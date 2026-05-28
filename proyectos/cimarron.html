@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Cimarrón — Brote Estudio</title>
+  <meta name="description" content="Mueble a medida para habitación en madera nogal con frentes de ratan. Diseño y ejecución por Brote Estudio, Rosario." />
+
+  <meta property="og:title" content="Proyecto Cimarrón — Brote Estudio" />
+  <meta property="og:description" content="Mueble a medida para habitación en madera nogal con frentes de ratan. Diseño y ejecución por Brote Estudio, Rosario." />
+  <meta property="og:image" content="https://brote-estudio.netlify.app/assets/images/proyectos/cimarron/03.jpeg" />
+
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --negro:      #262523;
+      --medio:      #433A35;
+      --gris:       #BFBBB6;
+      --gris-claro: #E8E5E1;
+      --blanco:     #F9F8F6;
+      --ff-display: 'Lora', Georgia, serif;
+      --ff-body:    'Poppins', sans-serif;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--blanco);
+      color: var(--negro);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      background: rgba(249, 248, 246, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--gris);
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      filter: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--medio);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: currentColor;
+      transition: width 0.3s var(--ease);
+    }
+
+    .nav-links a:hover { color: var(--negro); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gris);
+      transition: color 0.3s;
+    }
+
+    .nav-back::before { content: '←'; transition: transform 0.3s var(--ease); }
+    .nav-back:hover { color: var(--medio); }
+    .nav-back:hover::before { transform: translateX(-4px); }
+
+    /* ─── HERO DEL PROYECTO ────────────────────────────────── */
+    .proyecto-hero {
+      margin-top: 62px;
+      height: 70vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proyecto-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .proyecto-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(38,37,35,0.75) 0%, transparent 60%);
+    }
+
+    .proyecto-hero-content {
+      position: absolute;
+      bottom: 4rem;
+      left: 4rem;
+    }
+
+    .proyecto-eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 0.75rem;
+    }
+
+    .proyecto-titulo {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      color: var(--blanco);
+      line-height: 1.1;
+    }
+
+    .proyecto-titulo em {
+      font-style: italic;
+      color: var(--gris);
+    }
+
+    /* ─── DESCRIPCIÓN ──────────────────────────────────────── */
+    .proyecto-descripcion {
+      padding: 6rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+      border-bottom: 1px solid var(--gris-claro);
+    }
+
+    .proyecto-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: sticky;
+      top: 100px;
+    }
+
+    .meta-item-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 0.4rem;
+    }
+
+    .meta-item-value {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--negro);
+    }
+
+    .proyecto-texto p {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: var(--medio);
+      margin-bottom: 1.5rem;
+    }
+
+    .proyecto-texto p:last-child { margin-bottom: 0; }
+
+    .proyecto-quote {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--negro);
+      border-left: 2px solid var(--gris);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    /* ─── GALERÍA ──────────────────────────────────────────── */
+    .proyecto-galeria {
+      padding: 4rem;
+      background: var(--negro);
+    }
+
+    .galeria-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 3rem;
+    }
+
+    /* Grilla asimétrica de fotos */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: auto;
+      gap: 1rem;
+    }
+
+    .galeria-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Layout de 6 fotos */
+    .galeria-item:nth-child(1) { grid-column: span 7; }
+    .galeria-item:nth-child(2) { grid-column: span 5; }
+    .galeria-item:nth-child(3) { grid-column: span 4; }
+    .galeria-item:nth-child(4) { grid-column: span 8; }
+    .galeria-item:nth-child(5) { grid-column: span 6; }
+    .galeria-item:nth-child(6) { grid-column: span 6; }
+
+    .galeria-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s var(--ease);
+    }
+
+    .galeria-item:nth-child(1) img,
+    .galeria-item:nth-child(4) img { aspect-ratio: 16/10; }
+
+    .galeria-item:hover img { transform: scale(1.03); }
+
+    /* ─── OTROS PROYECTOS ──────────────────────────────────── */
+    .otros-proyectos {
+      padding: 6rem 4rem;
+      background: var(--gris-claro);
+    }
+
+    .otros-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .otros-title {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--negro);
+    }
+
+    .otros-link {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--medio);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+
+    .otros-link:hover { gap: 0.9rem; }
+
+    .otros-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .otro-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .otro-card-bg {
+      width: 100%;
+      aspect-ratio: 4/3;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .otro-card:hover .otro-card-bg { transform: scale(1.04); }
+
+    .bg-2 { background: linear-gradient(140deg, #4a4744, #2e2b29); }
+    .bg-3 { background: linear-gradient(140deg, #6a6562, #433A35); }
+    .bg-4 { background: linear-gradient(140deg, #524e4b, #353230); }
+
+    .otro-card-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(38,37,35,0.8), transparent);
+    }
+
+    .otro-card-label h3 {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--blanco);
+    }
+
+    .otro-card-label p {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-top: 0.2rem;
+    }
+
+    .otro-card-proximamente {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-logo img {
+      height: 24px;
+      width: auto;
+      filter: brightness(0) invert(1) opacity(0.85);
+    }
+
+    .footer-tagline {
+      font-size: 0.6rem;
+      color: var(--gris);
+      margin-top: 0.4rem;
+    }
+
+    .footer-copy {
+      font-size: 0.6rem;
+      color: var(--gris);
+      opacity: 0.5;
+    }
+
+    /* ─── Animations ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Responsive ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2rem; }
+      .proyecto-hero-content { left: 2rem; bottom: 2rem; }
+      .proyecto-descripcion { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+      .proyecto-meta { position: static; flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+      .proyecto-galeria { padding: 3rem 2rem; }
+      .galeria-grid { grid-template-columns: 1fr 1fr; }
+      .galeria-item:nth-child(n) { grid-column: span 1; }
+      .galeria-item img { aspect-ratio: 4/3 !important; }
+      .otros-proyectos { padding: 4rem 2rem; }
+      .otros-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .galeria-grid { grid-template-columns: 1fr; }
+      .otros-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/images/logo_transparente.png" alt="Brote Estudio" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#nosotros">Nosotros</a></li>
+      <li><a href="../index.html#servicios">Servicios</a></li>
+      <li><a href="../index.html#proyectos">Proyectos</a></li>
+      <li><a href="../index.html#contacto">Contacto</a></li>
+    </ul>
+    <a href="../index.html#proyectos" class="nav-back">Volver</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="proyecto-hero">
+    <img src="../assets/images/proyectos/cimarron/03.jpeg" alt="Proyecto Cimarrón — Brote Estudio" />
+    <div class="proyecto-hero-overlay"></div>
+    <div class="proyecto-hero-content">
+      <p class="proyecto-eyebrow">Mobiliario a medida · Rosario</p>
+      <h1 class="proyecto-titulo">Proyecto<br><em>Cimarrón</em></h1>
+    </div>
+  </div>
+
+  <!-- DESCRIPCIÓN -->
+  <div class="proyecto-descripcion">
+    <div class="proyecto-meta reveal">
+      <div>
+        <p class="meta-item-label">Tipo de proyecto</p>
+        <p class="meta-item-value">Mobiliario a medida</p>
+      </div>
+      <div>
+        <p class="meta-item-label">Ubicación</p>
+        <p class="meta-item-value">Rosario, Argentina</p>
+      </div>
+      <div>
+        <p class="meta-item-label">Materiales</p>
+        <p class="meta-item-value">Madera nogal, tejido de ratan</p>
+      </div>
+      <div>
+        <p class="meta-item-label">Estudio</p>
+        <p class="meta-item-value">Brote Estudio</p>
+      </div>
+    </div>
+
+    <div class="proyecto-texto reveal">
+      <blockquote class="proyecto-quote">
+        Un mueble que no ocupa el espacio: lo organiza, lo contiene y lo define.
+      </blockquote>
+      <p>
+        El Proyecto Cimarrón nació de la necesidad de resolver una habitación que pedía orden sin perder calidez. El desafío era crear un único mueble que concentrara múltiples funciones —guardado, televisión, calzado— sin que la suma de partes se sintiera como un almacenamiento. El resultado es un rack de madera nogal con frentes de tejido de ratan que recorre una pared entera: liviano en su textura, contundente en su presencia.
+      </p>
+      <p>
+        Cada módulo fue pensado con una lógica propia: la TV embutida en el panel de fondo, el zapatero oculto con cajón extraíble, los estantes internos detrás de puertas que revelan su interior solo cuando se lo necesita. El microcemento del piso y las cortinas traslúcidas acompañan sin competir. Porque cuando el diseño encuentra su lugar, el espacio simplemente fluye.
+      </p>
+    </div>
+  </div>
+
+  <!-- GALERÍA -->
+  <div class="proyecto-galeria">
+    <p class="galeria-label reveal">Galería</p>
+    <div class="galeria-grid">
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/03.jpeg" alt="Proyecto Cimarrón — vista general" />
+      </div>
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/01.jpeg" alt="Proyecto Cimarrón — zapatero" />
+      </div>
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/02.jpeg" alt="Proyecto Cimarrón — módulo guardado" />
+      </div>
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/04.jpeg" alt="Proyecto Cimarrón — espejo" />
+      </div>
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/05.jpeg" alt="Proyecto Cimarrón — detalle ratan" />
+      </div>
+      <div class="galeria-item reveal">
+        <img src="../assets/images/proyectos/cimarron/06.jpeg" alt="Proyecto Cimarrón — estantes" />
+      </div>
+    </div>
+  </div>
+
+  <!-- OTROS PROYECTOS -->
+  <div class="otros-proyectos">
+    <div class="otros-header">
+      <h2 class="otros-title">Otros proyectos</h2>
+      <a href="../index.html#proyectos" class="otros-link">Ver todos →</a>
+    </div>
+    <div class="otros-grid">
+      <div class="otro-card">
+        <div class="otro-card-bg bg-2"></div>
+        <div class="otro-card-label">
+          <h3>Proyecto San Sebastián</h3>
+          <p>Diseño de interiores · Rosario</p>
+        </div>
+        <span class="otro-card-proximamente">Próximamente</span>
+      </div>
+      <div class="otro-card">
+        <div class="otro-card-bg bg-3"></div>
+        <div class="otro-card-label">
+          <h3>Proyecto Timbó</h3>
+          <p>Remodelación · Rosario</p>
+        </div>
+        <span class="otro-card-proximamente">Próximamente</span>
+      </div>
+      <div class="otro-card">
+        <div class="otro-card-bg bg-4"></div>
+        <div class="otro-card-label">
+          <h3>Proyecto Arroyo V</h3>
+          <p>Proyecto completo · Rosario</p>
+        </div>
+        <span class="otro-card-proximamente">Próximamente</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">
+        <img src="../assets/images/logo_transparente.png" alt="Brote Estudio" />
+      </div>
+      <p class="footer-tagline">Arquitectura & Diseño de Interiores — Rosario</p>
+    </div>
+    <p class="footer-copy">© 2025 Brote Estudio</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
