@@ -795,13 +795,69 @@
 .whatsapp-float:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+}/* ─── Hamburguesa ──────────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
 }
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--blanco);
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+
+nav.scrolled .nav-hamburger span { background: var(--negro); }
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--negro);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-mobile.open { display: flex; }
+
+.nav-mobile a {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--blanco);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+
+.nav-mobile a:hover { color: var(--gris); }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
+<!-- NAV -->
   <nav id="navbar">
     <a href="#inicio" class="nav-logo">
       <img src="assets/images/logo_transparente.png" alt="Brote Estudio" />
@@ -812,7 +868,20 @@
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- Menú mobile -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#nosotros" class="nav-mobile-link">Nosotros</a>
+    <a href="#servicios" class="nav-mobile-link">Servicios</a>
+    <a href="#proyectos" class="nav-mobile-link">Proyectos</a>
+    <a href="#contacto" class="nav-mobile-link">Contacto</a>
+  </div>
 
   <!-- HERO -->
   <section id="inicio">
@@ -1062,6 +1131,26 @@
     }, { threshold: 0.12 });
 
     reveals.forEach(el => observer.observe(el));
+
+  // Hamburguesa
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navMobile.classList.toggle('open');
+  document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+});
+
+// Cerrar al clickear un link
+document.querySelectorAll('.nav-mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navMobile.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+    
   </script>
 
 <!-- WhatsApp flotante -->
